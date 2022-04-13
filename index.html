@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Mem-Gen</title>
+</head>
+
+<body onload="onInit()">
+    <header class="main-header main-layout">
+        <ul class=" header-content clean-list">
+            <li><a class="logo flex align-center" href="#">memelord</a></li>
+            <li><a class="can-press flex align-center" href="#" onclick="onShowGallery()">Gallery</a></li>
+
+        </ul>
+    </header>
+    <main class="main-content main-layout flex">
+        <div class="editor" onclick="onScreenClicked()">
+            <div class="canvas-container">
+                <canvas id="my-canvas"></canvas>
+            </div>
+            <div class="control-bar">
+                <input class="input-line" type="text" placeholder="Enter your text here" name="inputText"
+                    oninput="onInputText()" onclick="event.stopPropagation()">
+                </datalist>
+                <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
+                <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+            </div>
+        </div>
+        </div>
+        <div class="search-img flex space-between">
+            <div class="search-img-input-container">
+                <input class="search-img-input" type="text" name="search-img" oninput="onSetFilter()"
+                    placeholder="Search">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="keywords flex space-around"></div>
+        </div>
+        <div class="img-gallery"></div>
+        <div class="meme-list">
+
+        </div>
+
+    </main>
+    <footer class="main-footer main-header main-layout">
+        <ul class="footer-content header-content clean-list">
+            <li><a class="small-rights flex align-center" href="#">@coffeerigths 2022</a></li>
+        </ul>
+    </footer>
+    <script src="js/storage-service.js"></script>
+    <script src="js/mem-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
