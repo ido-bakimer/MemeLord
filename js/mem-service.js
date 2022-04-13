@@ -2,7 +2,7 @@
 const STORAGE_KEY = 'memesDB';
 
 var gImgs = [
-{ id: 1, url: 'img/1.jpg', keywords: ['baby'] },
+{ id: 1, url: '../img/1.jpg', keywords: ['baby'] },
 { id: 2, url: 'img/2.jpg', keywords: ['dance', 'woman', 'movie'] },
 { id: 3, url: 'img/3.jpg', keywords: ['politics', 'trump'] },
 { id: 4, url: 'img/4.jpg', keywords: ['love', 'happy', 'animals'] },
