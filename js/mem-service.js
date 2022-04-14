@@ -64,12 +64,12 @@ function updateKeywordSize(word) {
     if (gCommonSearchWords[keywordIdx].weight < maxWeight) gCommonSearchWords[keywordIdx].weight++;
 }
 
-function createMemes() {
-    var memes = loadFromStorage(STORAGE_KEY)
-    console.log('create memes')
-        gMemes = memes;
-        gIdx = gMemes[gMemes.length - 1].id + 1;
-}
+// function createMemes() {
+//     var memes = loadFromStorage(STORAGE_KEY)
+//     console.log('create memes')
+//         gMemes = memes;
+//         gIdx = gMemes[gMemes.length - 1].id + 1;
+// }
 
 function getImg() {
     return gImgs.find(img => img.id === gMeme.selectedImgId).url
