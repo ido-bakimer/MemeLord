@@ -24,33 +24,39 @@
                     ontouchend="handleTouchEnd(event)"></canvas>
             </div>
             <div class="control-bar">
-                <input class="input-line" type="text" placeholder="Enter your text here" name="inputText"
+                <input class="input-line" type="text" placeholder="Type your text here" name="inputText"
                     oninput="onInputText()" onclick="event.stopPropagation()">
                 <div>
-                    <button class="gen-btn"><a href="#" onclick="addLine()" >create new line</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onDeleteLine()" >delete line</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onLineSwitch()" >switch line</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onChangeAlignment('left')" >alignment:left</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onChangeAlignment('center')" >alignment:center</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onChangeAlignment('right')" >alignment:right</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onChangeFontSize(-5)" >-</a></button>
-                    <button class="gen-btn"><a href="#" onclick="onChangeFontSize(5)" >+</a></button>
-                    <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
-                        oninput="onChangedFont(event)" onclick="event.stopPropagation()" list="Fonts" name="font"
-                        placeholder="IMPACT">
-                    <datalist id="Fonts">
-                        <option value="IMPACT">
-                        <option value="ARIAL">
-                        <option value="COMIC">
-                    </datalist>
-                    <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
-                    <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+                    <div>
+                        <button class="gen-btn"><a href="#" onclick="onLineAdd()" >create new line</a></button>
+                        <button class="gen-btn"><a href="#" onclick="onLineDel()" >delete current line</a></button>
+                        <button class="gen-btn"><a href="#" onclick="onLineSwitch()" >switch line</a></button>
+                    </div>
+
+                    <div>
+                        <button class="gen-btn"><a href="#" onclick="onChangeAlignment('left')" >alignment:left</a></button>
+                        <button class="gen-btn"><a href="#" onclick="onChangeAlignment('center')" >alignment:center</a></button>
+                        <button class="gen-btn"><a href="#" onclick="onChangeAlignment('right')" >alignment:right</a></button>
+                    </div>
+                    
+                    <div>
+                        <button class="gen-btn"><a href="#" onclick="onChangeFontSize(-5)" >-</a></button>
+                        <button class="gen-btn"><a href="#" onclick="onChangeFontSize(5)" >+</a></button>
+                        <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
+                            oninput="onChangedFont(event)" onclick="event.stopPropagation()" list="Fonts" name="font"
+                            placeholder="IMPACT">
+                        <datalist id="Fonts">
+                            <option value="IMPACT">
+                            <option value="ARIAL">
+                            <option value="COMIC">
+                        </datalist>
+                        <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
+                        <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+                    </div>
+
                 </div>
-                <div class="third-btn-section">
-                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-                        <input name="img" id="imgData" type="hidden" />
-                        <button class="download-btn"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
-                    </form>
+                <div>
+                    <button class="download-btn"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
                 </div>
 
             </div>
@@ -59,7 +65,8 @@
             <div class="search-img-input-container">
                 <input class="search-img-input" type="text" name="search-img" oninput="onSetFilter()"
                     placeholder="Search">
-                <i class="fas fa-search"></i>            </div>
+                <i class="fas fa-search"></i>
+            </div>
             <div class="keywords flex space-around"></div>
         </div>
         <div class="img-gallery"></div>
@@ -67,9 +74,7 @@
         </div>
     </main>
     <footer class="main-footer main-header main-layout">
-        <ul class="footer-content header-content clean-list">
-            <li><a class="small-rights flex align-center" href="#">@coffeerigths 2020</a></li>
-        </ul>
+<a class="small-rights flex align-center" href="#">@coffeerigths 2020</a>
     </footer>
     <script src="js/storage-service.js"></script>
     <script src="js/mem-service.js"></script>

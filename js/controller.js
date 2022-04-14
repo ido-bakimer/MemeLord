@@ -72,7 +72,7 @@ function resizeCanvas() {
     var img = new Image();
     img.src = getImg();
     img.onload = function () {
-        const basicSize = window.innerWidth / 2 > 500 ? 500 : window.innerWidth * 0.7;
+        const basicSize = window.innerWidth / 2 > 500 ? 500 : window.innerWidth * 0.5;
         if (this.width >= this.height) {
             gCanvas.width = basicSize;
             gCanvas.height = (basicSize / this.width) * this.height
@@ -83,11 +83,6 @@ function resizeCanvas() {
     }
 }
 
-
-function onDeleteLine(){
-    deleteline();
-    renderCanvas();
-}
 
 function onLineMove(diff) {
     moveLine(diff);
@@ -239,6 +234,36 @@ function drawImg(imgSrc, lines) {
     }
 }
 
+function onDeleteMeme(id) {
+    deleteMeme(id);
+    onShowMemes();
+}
+
+function onShowMemes() {
+    const elEditor = document.querySelector('.editor')
+    elEditor.style.display = 'none'
+    const memes = getMemes();
+    memes.forEach(meme => {
+        const img = gCanvas.toDataURL('image/jpeg');
+    })
+    var strHTMLs = memes.map(meme => {
+        return `<div class="my-memes flex">
+                    <div class = "meme-control flex space-between">
+                        <a class = "download-meme" href="${meme.img}" download="Meme-${meme.id}"><img src="img/download.png"></a>
+                        <img onclick = "onDeleteMeme(${meme.id})" class = "del-meme" src="img/trash.png">
+                    </div>
+                    <img src="${meme.img}">
+                </div>`
+    })
+    const elMemeList = document.querySelector('.meme-list')
+    elMemeList.innerHTML = strHTMLs.join('');
+    elMemeList.style.display = 'grid'
+    const elImgGallery = document.querySelector('.img-gallery')
+    elImgGallery.style.display = 'none'
+    const elImgSearch = document.querySelector('.search-img')
+    elImgSearch.style.display = 'none'
+}
+
 function onShowGallery() {
     const elEditor = document.querySelector('.editor')
     elEditor.style.display = 'none'
@@ -256,8 +281,32 @@ function drawText(line) {
     gCtx.lineWidth = '1.5'
     gCtx.strokeStyle = line.strokeColor;
     gCtx.fillStyle = line.color
-    gCtx.font = `900 ${line.size}px ${line.font}`
+    gCtx.font = `900 ${line.size}px ${line.font}` //TODO: understand the first parameter
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeText(line.txt, line.x, line.y)
+}
+
+function drawFocus() {
+    if (!gFocus) {
+        gFocus = true;
+        return;
+    }
+    const line = getLine();
+    gCtx.beginPath()
+    gCtx.strokeStyle = 'black'
+    const width = gCtx.measureText(line.txt).width ? gCtx.measureText(line.txt).width + 15 : gCanvas.width - 20
+    let startX = line.x - 5;
+    switch (line.align) {
+        case 'center':
+            startX = line.x - width / 2;
+            break;
+        case 'right':
+            startX = line.x + 5 - width;
+            break;
+        default:
+            break;
+    }
+    gCtx.rect(startX, line.y - line.size - 5, width, line.size + 10) // x,y,widht,height
+    gCtx.stroke()
 }

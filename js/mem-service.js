@@ -67,17 +67,8 @@ function updateKeywordSize(word) {
 function createMemes() {
     var memes = loadFromStorage(STORAGE_KEY)
     console.log('create memes')
-    if (!memes || !memes?.length) {
-        gIdx = 110;
-        memes = _CreateStartMemes(); // nice start......
-        gMemes = memes;
-    }
-    else {
         gMemes = memes;
         gIdx = gMemes[gMemes.length - 1].id + 1;
-    }
-
-    saveToStorage(STORAGE_KEY, gMemes);
 }
 
 function getImg() {
@@ -104,7 +95,7 @@ function moveLine(diff) {
 }
 
 function changeFontSize(diff) {
-    gMeme.lines[gMeme.selectedLineIdx].size += diff;
+    gMeme.lines[gMeme.selectedLineIdx].size += diff; 
 }
 
 function changeStroke(color) {
@@ -144,6 +135,19 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length;
     gMeme.lines.push({ txt: '', size: 40, align: 'left', strokeColor: 'black', color: 'White', font: 'impact', x: 10, y: 0 })
     gMeme.lines[gMeme.selectedLineIdx].y = (gMeme.selectedLineIdx === 1) ? gCanvas.height - 50 : gCanvas.height / 2;
+}
+
+function delLine() {
+    if (gMeme.selectedLineIdx !== (gMeme.lines.length - 1 || gMeme.lines.length === 1)) _cleanLine()
+    else {
+        gMeme.lines.pop()
+        gMeme.selectedLineIdx--;
+    }
+}
+function switchSelectedLine() {
+    if (gMeme.selectedLineIdx === (gMeme.lines.length - 1))
+        gMeme.selectedLineIdx = 0;
+    else gMeme.selectedLineIdx++;
 }
 
 function setImgChosen(imgId) {
