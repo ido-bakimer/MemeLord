@@ -5,48 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Mem-Gen</title>
+    <title>MemeLord</title>
 </head>
 
 <body onload="onInit()">
     <header class="main-header main-layout">
         <ul class=" header-content clean-list">
-            <li><a class="logo flex align-center" href="#">memelord</a></li>
+            <li><a class="logo flex align-center" href="#">MemeLord</a></li>
             <li><a class="can-press flex align-center" href="#" onclick="onShowGallery()">Gallery</a></li>
-
         </ul>
     </header>
     <main class="main-content main-layout flex">
         <div class="editor" onclick="onScreenClicked()">
             <div class="canvas-container">
-                <canvas id="my-canvas"></canvas>
+                <canvas id="my-canvas" onmousemove="onCanvasMouseMove(event)" onmousedown="onCanvasMouseDown(event)"
+                    onmouseup="onCanvasMouseUp(event)" onclick="onCanvasClick(event)"
+                    ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)"
+                    ontouchend="handleTouchEnd(event)"></canvas>
             </div>
             <div class="control-bar">
                 <input class="input-line" type="text" placeholder="Enter your text here" name="inputText"
                     oninput="onInputText()" onclick="event.stopPropagation()">
-                </datalist>
-                <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
-                <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+                <div>
+                    <button class="gen-btn"><a href="#" onclick="addLine()" >create new line</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onDeleteLine()" >delete line</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onLineSwitch()" >switch line</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onChangeAlignment('left')" >alignment:left</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onChangeAlignment('center')" >alignment:center</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onChangeAlignment('right')" >alignment:right</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onChangeFontSize(-5)" >-</a></button>
+                    <button class="gen-btn"><a href="#" onclick="onChangeFontSize(5)" >+</a></button>
+                    <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
+                        oninput="onChangedFont(event)" onclick="event.stopPropagation()" list="Fonts" name="font"
+                        placeholder="IMPACT">
+                    <datalist id="Fonts">
+                        <option value="IMPACT">
+                        <option value="ARIAL">
+                        <option value="COMIC">
+                    </datalist>
+                    <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
+                    <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+                </div>
+                <div class="third-btn-section">
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="download-btn"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
+                    </form>
+                </div>
+
             </div>
-        </div>
         </div>
         <div class="search-img flex space-between">
             <div class="search-img-input-container">
                 <input class="search-img-input" type="text" name="search-img" oninput="onSetFilter()"
                     placeholder="Search">
-                <i class="fas fa-search"></i>
-            </div>
+                <i class="fas fa-search"></i>            </div>
             <div class="keywords flex space-around"></div>
         </div>
         <div class="img-gallery"></div>
         <div class="meme-list">
-
         </div>
-
     </main>
     <footer class="main-footer main-header main-layout">
         <ul class="footer-content header-content clean-list">
-            <li><a class="small-rights flex align-center" href="#">@coffeerigths 2022</a></li>
+            <li><a class="small-rights flex align-center" href="#">@coffeerigths 2020</a></li>
         </ul>
     </footer>
     <script src="js/storage-service.js"></script>
