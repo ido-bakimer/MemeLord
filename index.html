@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fa-solid-900.ttf">
     <link rel="stylesheet" href="css/main.css">
-    <title>MemeLord</title>
+    <title>Meme Lord</title>
 </head>
 
 <body onload="onInit()">
-    <header class="main-header main-layout">
-        <ul class=" header-content clean-list">
-            <li><a class="logo flex align-center" href="#">MemeLord</a></li>
-            <li><a class="can-press flex align-center" href="#" onclick="onShowGallery()">Gallery</a></li>
-        </ul>
-    </header>
+    <div class="neon-Header">
+        <p>Meme-Lord</p>
+    </div>
+<header class="main-header main-layout">
+   <neon-Box href="#" onclick="onShowGallery()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Gallery
+    </neon-Box>
+</header>
     <main class="main-content main-layout flex">
         <div class="editor" onclick="onScreenClicked()">
             <div class="canvas-container">
@@ -28,20 +35,68 @@
                     oninput="onInputText()" onclick="event.stopPropagation()">
                 <div>
                     <div>
-                        <button class="gen-btn"><a href="#" onclick="onLineAdd()" >create new line</a></button>
-                        <button class="gen-btn"><a href="#" onclick="onLineDel()" >delete current line</a></button>
-                        <button class="gen-btn"><a href="#" onclick="onLineSwitch()" >switch line</a></button>
+                        <neon-btn href="#" onclick="onLineAdd()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#x2b
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onLineDel()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                             &#xf1f8
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onLineSwitch()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf0ec
+                        </neon-btn>
                     </div>
-
                     <div>
-                        <button class="gen-btn"><a href="#" onclick="onChangeAlignment('left')" >alignment:left</a></button>
-                        <button class="gen-btn"><a href="#" onclick="onChangeAlignment('center')" >alignment:center</a></button>
-                        <button class="gen-btn"><a href="#" onclick="onChangeAlignment('right')" >alignment:right</a></button>
+                        <neon-btn href="#" onclick="onChangeAlignment('left')">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf036
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onChangeAlignment('center')">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                             &#xf039
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onChangeAlignment('right')">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf038
+                        </neon-btn>
                     </div>
-                    
                     <div>
-                        <button class="gen-btn"><a href="#" onclick="onChangeFontSize(-5)" >-</a></button>
-                        <button class="gen-btn"><a href="#" onclick="onChangeFontSize(5)" >+</a></button>
+                        <neon-btn href="#" onclick="onChangeFontSize(-5)">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf031+
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onChangeFontSize(5)">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            &#xf031-
+                        </neon-btn>
+                    </div>
+                    <div>
                         <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
                             oninput="onChangedFont(event)" onclick="event.stopPropagation()" list="Fonts" name="font"
                             placeholder="IMPACT">
@@ -67,6 +122,20 @@
                     placeholder="Search">
                 <i class="fas fa-search"></i>
             </div>
+            <neon-Box href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                MemeLord
+            </neon-Box>
+            <neon-btn href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                &#xf036
+            </neon-btn>
             <div class="keywords flex space-around"></div>
         </div>
         <div class="img-gallery"></div>

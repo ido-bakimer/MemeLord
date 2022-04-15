@@ -6,7 +6,6 @@ var gFocus = true;
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
-    // createMemes();
     renderGallery();
     renderSearchWords()
 }
