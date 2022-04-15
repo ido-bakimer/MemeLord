@@ -81,20 +81,27 @@
                         </neon-btn>
                     </div>
                     <div>
-                        <neon-btn href="#" onclick="onChangeFontSize(-5)">
+                        <neon-btn  class="font-btn" href="#" onclick="onChangeFontSize(-5)">
                             <span></span>
                             <span></span>
                             <span></span>
                             <span></span>
                             &#xf031+
                         </neon-btn>
-                        <neon-btn href="#" onclick="onChangeFontSize(5)">
+                        <neon-btn  class="font-btn" href="#" onclick="onChangeFontSize(5)">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             &#xf031-
                         </neon-btn>
+                            <neon-btn href="#"  onclick="onDownloadCanvas(this)" download="">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <a class="neon-fix" onclick="onDownloadCanvas(this)" download="">&#xf019</a>
+                            </neon-btn>
                     </div>
                     <div>
                         <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
@@ -110,10 +117,6 @@
                     </div>
 
                 </div>
-                <div>
-                    <button class="download-btn"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
-                </div>
-
             </div>
         </div>
         <div class="search-img flex space-between">
@@ -122,28 +125,27 @@
                     placeholder="Search">
                 <i class="fas fa-search"></i>
             </div>
-            <neon-Box href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                MemeLord
-            </neon-Box>
-            <neon-btn href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                &#xf036
-            </neon-btn>
             <div class="keywords flex space-around"></div>
         </div>
         <div class="img-gallery"></div>
         <div class="meme-list">
         </div>
     </main>
-    <footer class="main-footer main-header main-layout">
-<a  href="#">coffeerigths 2022</a>
+    <footer class="main-footer">
+        <neon-btn href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <a  href="#">@coffeerigths 2022</a>
+        </neon-btn>
+        <neon-btn href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <a  href="https://www.linkedin.com/in/ido-bakimer-444826236/">linkedin</a>
+        </neon-btn>
     </footer>
     <script src="js/storage-service.js"></script>
     <script src="js/mem-service.js"></script>

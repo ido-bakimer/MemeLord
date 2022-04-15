@@ -270,8 +270,9 @@ main {
 
 
 .main-header {
+    display: flex;
     width: 100%;
-    align-content: center;
+    justify-content: center;
     /* background-color: #9898987b; */
     margin-bottom: 1.3rem;
 }
@@ -301,7 +302,7 @@ main {
 .canvas-container {
     margin-inline-start: 5.3125rem;
     border-radius: 5%;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0px 0px 17px 8px #00f2ff;
 }
 
@@ -325,8 +326,12 @@ canvas {
     color: white;
     background-color: #00000015;
     margin-bottom: 15px;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 1rem;
+}
+
+.neon-fix{
+    padding: 5px;
 }
 
 .btn-font {
@@ -342,7 +347,10 @@ button i {
     margin-inline-end: 2rem;
 }
 
-
+.font-btn{
+    font-size: 13px;
+    padding: 15px 24px;
+}
 
 .search-img {
     margin-bottom: 1rem;
@@ -381,9 +389,9 @@ button i {
     align-items: center;
     margin: 0 20px;
     height: 58px;
-    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 5px 2px #ff00fb;
     border-radius: 25px;
-    background-color: #6d6d6d;
+    background-color: #00000015;
     color: white;
     font-size: 1rem;
     font-family: Poppins;
